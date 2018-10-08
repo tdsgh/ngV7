@@ -36,7 +36,7 @@ export class Api {
 
     }
 
-    callApi(key: string, data?: object, options?: object){
+    async callApi(key: string, data?: object, options?: object): Promise<IApiResponse>{
 
         console.log(key);
 
@@ -46,22 +46,19 @@ export class Api {
 
         if(key === apiCallsMap.default.login){
             //direct request
-            this.http.post<IApiResponse>(apiEndPoint, body, {headers: this.headers})
-            .pipe(
-                tap(resp => { console.log(`Login Ok [${resp.result}]`); }),
-                catchError((err): Observable<any> => {
+            const resp = await this.http.post<IApiResponse>(apiEndPoint, body, { headers: this.headers })
+                .pipe(tap(resp => { console.log(`Login Ok [${resp.result}]`); }), catchError((err): Observable<any> => {
                     console.error(`Login failed: ${err}`);
                     return err;
-                })
-            ).toPromise()
-            .then(resp => {
-                return resp.result;
-            });
+                })).toPromise();
+            return resp.result;
         }else{
             //queue request and push
             let entry = new ApiCallEntry(apiEndPoint, data)
             this._queue.push(entry);
             this._queueSubject.next(entry);
+
+            return entry.retPromise;
         }
     }
 }
