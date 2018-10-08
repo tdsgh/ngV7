@@ -1,0 +1,32 @@
+{
+	"appConfig": {
+		"viewTabs": ["dashboards", "sns", "productContent", "placement", "pricing", "assortment", "rnr", "settings"],
+		"views": {
+			"loading": {
+				"viewToTransit": "sns"
+			},
+			"rnr": {
+				"beta_5332": false
+			}
+		}
+	},
+	"appSettings": {
+		"currency": "€",
+		"features": {
+			"app": {
+				"buyBox": "on",
+				"map": "on",
+				"enableQA": false,
+				"ftp": ""
+			}
+		}
+	},
+	"refResources": ["configs/remapMsrp.json"],
+	"api": {
+		"srvUrl": "http://appapi.profitero.com",
+		"server_matching": "http://appapi.profitero.com",
+		"server_download": "http://app.profitero.com",
+		"server_pdf": "http://brand2.profitero.com/highcharts-export-web",
+		"server_image": "http://brand2.profitero.com/highcharts-export-web"
+	}
+}

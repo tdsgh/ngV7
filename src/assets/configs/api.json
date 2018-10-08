@@ -1,0 +1,220 @@
+{
+    "login": "login",
+    "logout": "logout",
+  
+    "userSettings": "current_user",
+    "competitorShops": "my_competitor_shops",
+    "myShops": "my_shops",
+  
+    "starProducts": "star_products",
+  
+    "getUserData": "get_user_data",
+    "getUsers": "get_users",
+    "getCustomer": "get_customer",
+    "getExtraFilters": "get_extra_filters",
+    "getFilters": "get_filters",
+    "getTags": "get_tags",
+    "getProducts": "get_products",
+    "getProductInfo": "get_product_info",
+    "getReport": "get_report",
+    "getDashboard": "dashboard",
+    "getAlerts": "get_alerts",
+    "getAlerts2": "get_alerts_2",
+    "getUserAlertRoles": "get_user_alert_roles",
+    "getUserAlerts": "get_user_alerts",
+    "getShopSets": "get_shop_sets",
+    "getBaseCustomerShops": "get_base_customer_shops",
+    "getCompetitorGroups": "get_competitor_groups",
+    "getUrlProducts": "get_url_products",
+  
+    "saveUserData": "save_user_data",
+    "massSaveUserData": "mass_save_user_data",
+    "saveFilter": "save_filter",
+    "saveAlert": "save_alert",
+    "saveDashboard": "save_dashboard",
+  
+    "saveTag": "save_tag",
+    "saveShopSet": "save_shop_set",
+    "saveCustomer2": "save_customer2",
+    "saveCurrentUser": "save_current_user",
+    "saveManualUnits": "save_manual_units",
+  
+    "setDeliveryMode": "set_delivery_mode",
+  
+    "delUserData": "del_user_data",
+    "delFilters": "del_filters",
+    "delAlerts": "del_alerts",
+    "removeDashboard": "remove_dashboard",
+    "unregCustomerProducts": "unreg_customer_products",
+    "detTags": "del_tags",
+    "delShopSet": "delete_shop_set",
+  
+    "saveProductsMapping": "save_products_mapping",
+    "productsForMapping": "page_products_for_mapping",
+    "competitorsForMapping": "page_competitors_for_mapping",
+    "mappingLoad": "load",
+    "pageProductsMappingSplit": "page_products_for_mapping_split",
+  
+    "newWidgetContent": "new_widget_content",
+    "updatePricePercent": "update_widget",
+    "duplicateWidgetContent": "duplicate_widget_content",
+    "generateWidgetContent": "generate_widget_content",
+    "generateWidgetData": "generate_widget_data",
+  
+    "setCompetitorMultiplier": "set_competitor_multiplier",
+    "setPrivateLabel": "set_private_label",
+    "regTags": "reg_tags",
+    "unregTags": "unreg_tags",
+  
+    "checkPassword": "check_password",
+    "saveCurrentUserPassword": "save_current_user_password",
+  
+    "sendQuestion": "send_question",
+    "sendFeedback": "send_feedback",
+  
+    "currentUserSettings": "current_user_settings",
+    "currentUserData": "current_user_data_v6",
+  
+    "groupProducts": "group_products",
+  
+    "registerCompetitors": "register_competitors",
+  
+    "getProdPropertyCard": "get_product_property_card",
+    "getCustomerBrands": "get_customer_brands",
+    "getCustomerBrands2": "get_customer_brands2",
+    "getBrandsByType": "get_brands_by_type",
+    "getSnsBrandsByType": "get_sns_brands_by_type",
+    "getCompetitorBrands2": "get_customer_brands2",
+    "getShopBreadCrumbs": "get_shop_breadcrumbs",
+    "getShareOfShelf": "get_share_of_shelf",
+  
+    "getCustomerTags": "get_customer_tags",
+    "getDataQuality": "get_data_quality",
+    "getMarketShareCats": "get_sns_categories",
+    "getMarketShareBrands": "get_market_sh_brands",
+    "getSnsBrands": "get_sns_brands",
+  
+    "getRankingBreadcrumbs": "get_ranking_breadcrumbs",
+    "saveRankingBreadcrumbs": "save_ranking_breadcrumbs",
+    "delRankingBreadcrumbs": "del_ranking_breadcrumbs",
+  
+    "getUsedRankingBreadcrumbs": "get_used_ranking_breadcrumbs",
+  
+    "getSearchWords": "get_search_words",
+    "addSearchWords": "add_search_words",
+    "delSearchWords": "del_search_words",
+  
+    "getCustomerProperties": "get_customer_properties",
+    "savePropertyDefinitions": "save_property_definitions",
+    "delPropertyDefinitions": "del_property_definitions",
+  
+    "getRankingData": "get_ranking_data",
+  
+    "unmatchCompetitor": "unmatch_competitor",
+    "saveProductInfo": "save_product_info",
+  
+    "getAdminMenu": "get_menu",
+    "execAdminMenu": "exec_menu",
+    "updateCustomerInfo": "update_customer_info",
+  
+    "setProductValidated": "set_product_validated",
+  
+    "calcProrata": "calc_prorata",
+    "saveCustPackings": "save_cust_packings",
+  
+    "openLink": "open_link",
+  
+    "productUnmatch": "product_unmatch",
+  
+    "getFactsTable": "get_facts_table",
+    "getMissedDates": "get_missed_dates",
+  
+    "editProperty": "edit_property",
+  
+    "getGlobalScores": "get_global_scores",
+    "getCountryScores": "get_country_scores",
+  
+    "getPcSummary": "get_pc_summary",
+    "getPcSummaryInsight": "get_pc_summary_insight",
+    "getPcSummaryChart": "get_pc_summary_chart",
+    "getPcSummaryStats": "get_pc_summary_stats",
+  
+    "getPcBenchmarks": "get_pc_benchmark",
+    "getPcBenchmarkProducts": "get_pc_benchmark_products",
+  
+    "getPcProductsSummary": "get_pc_products_summary",
+    "getPcProductsFilters": "get_pc_products_filters",
+    "getPcProducts": "get_pc_products",
+  
+    "getPlacementSummary": "get_placement_summary",
+    "getPlacementFellOff": "get_placement_fell_off",
+    "getPlacementSummaryChart": "get_placement_summary_chart",
+    "getPlacementSummaryStats": "get_placement_summary_items",
+  
+    "getPlacementProducts": "get_pl_products",
+    "getPlacementProductsStat": "get_pl_products_summary",
+    "getPlacementProductsChart": "get_pl_page1_share_trend",
+  
+    "getPlacementBenchmarksProducts": "get_pl_benchmarks_products",
+    "getPlacementBenchmarksStat": "get_pl_benchmarks_summary",
+    "getPlacementBenchmarksChart": "get_pl_benchmarks_page1_share_trend",
+  
+    "getPlacementDetail": "get_placement_details",
+  
+    "getSnsStat": "get_sns_stat",
+    "getSnsOverview":"get_sns_overview",
+    "getSnsDetailsOverview": "get_sns_details_overview",
+    "getSnsDetailsTable": "get_sns_details_table",
+    "getSnsSettings": "get_sns_settings",
+    "getSnsProductOverview": "get_sns_product_overview",
+    "getSnsProductDetails": "get_sns_product_details",
+    "getRawExport": "get_raw_export",
+    "updateScheduleReport": "update_scheduled_report",
+  
+    "getPcProductDetails": "get_pc_product_detailes",
+  
+    "getPricingProductsSummary": "get_pricing_products_summary",
+    "getPricingProductsTable": "get_pricing_products_table",
+  
+    "getPricingSummary": "get_pricing_summary",
+    "getPricingAndPromotionSummary": "get_pricing_and_promotion_summary",
+    "getPricingBuyBoxSummary": "get_pricing_buybox_summary",
+    "getPricingCompetitionSummary": "get_pricing_competition_summary",
+    "getPricingDetails": "get_pricing_details",
+    "getPricingBenchmarks": "get_pricing_benchmarks",
+    "getPricingBenchmarksSummary": "get_pricing_benchmarks_summary",
+    "getPricingBenchmarksDetails": "get_pricing_benchmarks_detailes",
+  
+    "getAssortmentSummary": "get_assortment_summary",
+    "getAssortmentStats": "get_assortment_stats",
+    "getAssortmentStatDetails": "get_assortment_stats_detailes",
+    "getAssortmentProductsSummary": "get_assortment_products_summary",
+    "getAssortmentProductsAvailability": "get_assortment_products_availability",
+    "getAssortmentProductsFirstListed": "get_assortment_products_first_listed",
+    "getAssortmentDetails": "get_assortment_details",
+  
+    "getRnrSummary": "get_rnr_summary",
+    "getRnrStats": "get_rnr_stats",
+    "getRnrBenchmarks": "get_rnr_benchmarks",
+    "getRnrBenchmarkProducts": "get_rnr_benchmark_products",
+    "getRnrProductsSummary": "get_rnr_products_summary",
+    "getRnrProductsTable": "get_rnr_products_table",
+    "getRnrDetails": "get_rnr_details",
+    "getRnrReviews": "get_rnr_reviews",
+    "getRnrReviewsStats": "get_rnr_reviews_stats",
+    "getRnrReviewsTable": "get_rnr_reviews_table",
+  
+    "getUPSTransitions": "get_ups_transitions",
+    "updateUserAlert": "update_user_alert",
+    "deleteUserAlert": "delete_user_alert",
+  
+    "getScheduledReports": "get_scheduled_reports",
+    "deleteScheduledReport": "delete_scheduled_report",
+  
+    "getScoreSettings": "get_score_settings",
+    "saveScoreSettings": "save_score_settings",
+    "validateScorecardsReport": "validate_scorecards_report",
+    "getScorecardsReport": "get_scorecards_report",
+    "getScorecardsData": "get_scorecards_data"
+}
+  
