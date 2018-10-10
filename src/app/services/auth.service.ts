@@ -1,21 +1,16 @@
 import { Injectable } from '@angular/core';
-//import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Api, apiCalls } from 'services/api.service';
-import { catchError, tap } from 'rxjs/operators';
-import { Observable, Subject } from 'rxjs';
-import { delay, bufferWhen } from 'rxjs/operators';
+import { apiCalls } from 'services/api.service';
+import { catchError, tap, delay } from 'rxjs/operators';
+import { Observable, Subject, of } from 'rxjs';
 import * as _ from 'lodash';
 
-import * as apiCallsMap from 'assets/configs/api.json';
-
+import { HttpWrap } from '../httpWrap';
 import { AppConfig } from 'services/app-config.service';
-import { IApiResponse } from 'interfaces/api/response.model';
-import {IApiCallQueueEntry, ApiCallEntry} from './apiCallTypes';
 
 @Injectable()
 export class Auth {
 
-    private _authToken: boolean = false;
+    private _authToken: boolean;// = false;
 
     public authSubject: Subject<string | any> = new Subject();
 
@@ -28,24 +23,28 @@ export class Auth {
             this._authToken = token;
             if(token)
                 this.authSubject.next(token);
-            else
+            else{
                 this.authSubject.next(false);
-            this.authenticateApp();
+                this.authenticateApp();
+            }
         }
     }
 
-    constructor(private api: Api, private appConfig: AppConfig) {
-        //this._isAuth = false;
+    constructor(private httpWrap: HttpWrap, private appConfig: AppConfig) {
+        of(1).pipe(delay(1000)).subscribe(() => {
+            console.log("WWWWWWW");
+            this.IsAuthenticated = false;
+        });
     }
 
     authenticateApp(){
-        this.api.callApi(apiCalls.login).then(resp => {
-            if(resp.success){
-                this.IsAuthenticated = resp.result;
-            }else{
-                this.authSubject.next(false);
-            }
-        })
+        if(this.appConfig.cred){
+            this.httpWrap.callApi(apiCalls.login, {username: this.appConfig.cred.name, password: this.appConfig.cred.pass}).then(resp => {
+                this.IsAuthenticated = resp.success ? resp.result : false;
+            });
+        }else{
+            throw "Auth.authenticateApp: not implemented for production mode."
+        }
     }
 }
 

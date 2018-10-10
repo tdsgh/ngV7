@@ -19,6 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit()    {
     console.log(`AppComponent.OnInit: ${JSON.stringify(this.appConfigService.settings, null, 4)}`);
 
-    this.api.callApi(apiCalls.login, {username: "dima///1508", password: "_Dima.t321"});
+    this.api.callApi(apiCalls.userSettings);
   }
 }
