@@ -14,11 +14,18 @@ export class HttpWrap {
 
     private apiUrl: string;
     private headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    private _token?: string = null;
 
-    constructor(private http: HttpClient,
-        private appConfig: AppConfig) {
-        this.apiUrl = this.appConfig.settings.api.srvUrl;
+    constructor(private http: HttpClient) {
+        this.apiUrl = AppConfig.settings.api.srvUrl;
 
+    }
+
+    public set authToken(token: string | boolean){
+        this._token = token ? token.toString() : null;
+    }
+    public get authToken(){
+        return this._token;
     }
 
     async callApi(key: string, data?: object, options?: object): Promise<IApiResponse>{
@@ -27,7 +34,9 @@ export class HttpWrap {
 
         var apiEndPoint = `${this.apiUrl}/${key}`;
         var body = new HttpParams();
-        _.forOwn(data, (val, key) => { body = body.set(key, val) });
+        _.forOwn(data || {}, (val, key) => { body = body.set(key, val) });
+        if(this.authToken)
+            body = body.set("_s", this.authToken.toString());
 
         const resp = await this.http.post<IApiResponse>(apiEndPoint, body, { headers: this.headers })
             .pipe(tap(resp => { console.log(`Start request [${key}]`); }), catchError((err): Observable<any> => {

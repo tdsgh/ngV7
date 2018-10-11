@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AppConfig } from './services/app-config.service';
-import { Api, apiCalls } from './services/api.service';
+import { AppConfig, apiCalls } from './services/app-config.service';
+import { Api } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   ngOnInit()    {
-    console.log(`AppComponent.OnInit: ${JSON.stringify(this.appConfigService.settings, null, 4)}`);
+    console.log(`AppComponent.OnInit: ${JSON.stringify(AppConfig.settings, null, 4)}`);
 
     this.api.callApi(apiCalls.userSettings);
   }

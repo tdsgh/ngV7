@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { apiCalls } from 'services/api.service';
+//import { apiCalls } from 'services/api.service';
 import { catchError, tap, delay } from 'rxjs/operators';
 import { Observable, Subject, of } from 'rxjs';
 import * as _ from 'lodash';
 
-import { HttpWrap } from '../httpWrap';
-import { AppConfig } from 'services/app-config.service';
+import { HttpWrap } from './http-wrap.service';
+import { AppConfig, apiCalls } from 'services/app-config.service';
 
 @Injectable()
 export class Auth {
 
-    private _authToken: boolean;// = false;
+    private _authToken: string | boolean;// = false;
 
     public authSubject: Subject<string | any> = new Subject();
 
@@ -18,9 +18,10 @@ export class Auth {
         return !!this._authToken;
     }
 
-    public set IsAuthenticated(token: string | any){
+    public set IsAuthenticated(token: string | boolean){
         if(this._authToken !== token){
             this._authToken = token;
+            this.httpWrap.authToken = token;
             if(token)
                 this.authSubject.next(token);
             else{
@@ -38,8 +39,8 @@ export class Auth {
     }
 
     authenticateApp(){
-        if(this.appConfig.cred){
-            this.httpWrap.callApi(apiCalls.login, {username: this.appConfig.cred.name, password: this.appConfig.cred.pass}).then(resp => {
+        if(AppConfig.cred){
+            this.httpWrap.callApi(apiCalls.login, {username: AppConfig.cred.name, password: AppConfig.cred.pass}).then(resp => {
                 this.IsAuthenticated = resp.success ? resp.result : false;
             });
         }else{
