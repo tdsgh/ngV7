@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 
-import { Api } from 'services/api.service';
 import { IAppConfig } from '../app-config.model';
 
 import * as apiCallsMap from 'assets/configs/api.json';
@@ -21,7 +20,7 @@ export class AppConfig {
 
     public static cred: any;
 
-    constructor(private http: HttpClient/*, private api: Api*/) {}
+    constructor(private http: HttpClient) {}
 
     static async load(http: HttpClient) {
         const jsonFile = `assets/configs/appConfig.json`;
@@ -35,21 +34,7 @@ export class AppConfig {
             ).toPromise();
         AppConfig.settings = resp;
 
-        // this.api.callApi(apiCalls.currentUserSettings)
-        //         .then(sett => this.currentUserSettings = sett)
-        //         .catch(err => {
-        //             console.error(`Current User Settings failed [${err.message}]`);
-        //             return Promise.reject(err.message);
-        //         });
-
-        // this.api.callApi(apiCalls.currentUserData)
-        //         .then(ud => this.currentUserData = ud)
-        //         .catch(err => {
-        //             console.error(`Current User Data failed [${err.message}]`);
-        //             return Promise.reject(err.message);
-        //         });
-
-        return 'Ok';
+        return resp;
     }
 
     static async loadCredDebug(http: HttpClient){

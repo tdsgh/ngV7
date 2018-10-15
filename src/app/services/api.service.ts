@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
-import { delay, buffer, filter } from 'rxjs/operators';
+import { buffer, filter } from 'rxjs/operators';
 import * as _ from 'lodash';
-
-//import * as apiCallsMap from 'assets/configs/api.json';
 
 import { Auth } from 'services/auth.service';
 
@@ -39,12 +35,22 @@ export class Api {
         // this._waitRepeatSubject.pipe(delay(20000)).subscribe(p => this._queueSubject.next(p));
 
         this._callSubscribe.subscribe(arr => _.forEach(arr, this.processEntry.bind(this)));
+        this._sendCallSubject.subscribe(key => {
+            console.log(`Call ${key} ready to be sent`);
+        });
+        this._queueSubject.subscribe(entry => {
+            if(this.authService.IsAuthenticated){
+                this._sendCallSubject.next(entry.endpoint);
+            } else{
+                console.log(`Call ${entry.endpoint} postponed [IsAuthenticated: false]`);
+            }
+        });
     }
 
     async callApi(key: string, data?: object, options?: object): Promise<IApiResponse>{
         let entry = new ApiCallEntry(key, data);
         this._queueSubject.next(entry);
-        this._sendCallSubject.next(key);
+        //this._sendCallSubject.next(key);
 
         return entry.retPromise;
     }
@@ -52,10 +58,12 @@ export class Api {
     processEntry(entry: ApiCallEntry){
         this.httpWrap.callApi(entry.endpoint, entry.data).then(resp => {
             console.log(`Response for [key:${entry.endpoint}]: ${resp}`);
+
+            // Api Errors, Busy etc. processing should be here
+
             entry.resolve(resp);
-        })
+        });
     }
 }
 
-//export const apiCalls = apiCallsMap.default;
 

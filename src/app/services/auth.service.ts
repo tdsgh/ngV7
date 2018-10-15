@@ -22,9 +22,10 @@ export class Auth {
         if(this._authToken !== token){
             this._authToken = token;
             this.httpWrap.authToken = token;
-            if(token)
+            if(token){
+                console.log(`Auth.IsAuthenticated: ${token}`);
                 this.authSubject.next(token);
-            else{
+            } else{
                 this.authSubject.next(false);
                 this.authenticateApp();
             }
@@ -32,8 +33,8 @@ export class Auth {
     }
 
     constructor(private httpWrap: HttpWrap, private appConfig: AppConfig) {
-        of(1).pipe(delay(1000)).subscribe(() => {
-            console.log("WWWWWWW");
+        of(1).pipe(delay(200)).subscribe(() => {
+            console.log("Starting Auth service");
             this.IsAuthenticated = false;
         });
     }
