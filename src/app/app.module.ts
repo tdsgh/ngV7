@@ -12,6 +12,8 @@ import { StartPageComponent }    from './start/start-page.component';
 import { PageNotFoundComponent }    from './not-found.component';
 
 import { AppComponent } from './app.component';
+import { AppMenu } from './app-menu.component';
+
 import { AppRoutingModule } from './app-routing.module';
 
 export function initializeApp(http: HttpClient) {
@@ -26,6 +28,7 @@ export function initializeCred(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    AppMenu,
 
     LoadingPageComponent,
     StartPageComponent,
